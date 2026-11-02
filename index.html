@@ -738,7 +738,7 @@ p {
 }
 
 /* =====================================================
-   SECCIÓN VISIÓN (AHEAD & STRATEGY)
+   SECCIÓN VISIÓN (STRATEGY CÉNTRICO Y FIJO)
 ===================================================== */
 .vision-panel {
     position: relative;
@@ -750,40 +750,45 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 100px 2%; /* Reducido para permitir tarjetas más grandes */
+    padding: 100px 4%; 
 }
 
 .vision-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    max-width: 1850px; /* Aumentado para que los elementos crezcan */
+    max-width: 1800px; 
+    gap: 40px; /* Separación fija horizontal entre las dos columnas */
+    min-height: 80vh; 
     position: relative;
     z-index: 50;
-    gap: 20px; /* Reducido para estar más cerca */
 }
 
-/* Contenedor izquierdo para Damián y Strategy */
-.vision-group-images {
+/* Columna Izquierda: Damian y Video */
+.vision-col-left {
     display: flex;
-    flex-direction: row;
-    gap: 20px; /* Reducido para estar más cerca */
-    flex: 2; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centra el video bajo la foto de Damián */
+    width: 50%; 
+    gap: 30px; /* Separación vertical fija exacta entre Damián y el Video */
 }
 
-/* Contenedor derecho para el Video */
-.vision-group-video {
+/* Columna Derecha: Strategy */
+.vision-col-right {
     display: flex;
-    flex: 1; 
+    align-items: center; 
+    justify-content: center;
+    width: 50%;
 }
 
-/* Tarjetas unificadas con relación de aspecto correcta */
-.vision-card-16-9 {
-    flex: 1;
-    aspect-ratio: 2.18 / 1; 
-    border-radius: 16px;
+/* Medidas y ratios exactas de tus imágenes */
+.card-damian {
+    width: 105%;
+    aspect-ratio: 4039 / 1983; 
+    border-radius: 12px;
     background: #000;
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 15px 40px rgba(0,0,0,0.5);
@@ -791,13 +796,13 @@ p {
     overflow: hidden;
     z-index: 30;
     transition: transform 0.3s ease, border-color 0.3s ease;
+    transform-origin: center;
 }
 
-/* El video sigue manteniendo 16:9 */
-.vision-card-video {
-    flex: 1;
-    aspect-ratio: 16 / 9;
-    border-radius: 16px;
+.card-video {
+    width: 65%;
+    aspect-ratio: 1280 / 720;
+    border-radius: 12px;
     background: #000;
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 15px 40px rgba(0,0,0,0.5);
@@ -805,68 +810,46 @@ p {
     overflow: hidden;
     z-index: 30;
     transition: transform 0.3s ease, border-color 0.3s ease;
+    transform-origin: center;
 }
 
-.vision-card-16-9:hover, .vision-card-video:hover {
-    transform: translateY(-5px);
+.card-strategy {
+    width: 105%;
+    aspect-ratio: 2598 / 1634; 
+    border-radius: 12px;
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+    z-index: 30;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    transform-origin: center;
+}
+
+/* =====================================================
+   EFECTOS HOVER (Solo reducción de tamaño al 5%)
+===================================================== */
+.card-damian:hover,
+.card-video:hover,
+.card-strategy:hover {
+    transform: scale(0.95); 
     border-color: var(--marelli-cyan);
 }
 
-/* Clases para el efecto escalonado (20% arriba/abajo) */
-.card-up-20 {
-    transform: translateY(-20%);
-}
-
-.card-up-20:hover {
-    transform: translateY(calc(-20% - 5px));
-    border-color: var(--marelli-cyan);
-}
-
-.card-down-20 {
-    transform: translateY(20%);
-}
-
-.card-down-20:hover {
-    transform: translateY(calc(20% - 5px));
-    border-color: var(--marelli-cyan);
-}
-
-.vision-card-16-9 img, 
-.vision-card-video video {
+.card-damian img, 
+.card-video video,
+.card-strategy img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center;
+    object-position: center;
     pointer-events: none; 
 }
 
 /* Cursor interactivo para imágenes y videos */
 .interactive-media {
     cursor: pointer;
-}
-
-.vision-card-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
-    padding: 30px 20px 15px 20px;
-    text-align: left;
-}
-
-.vision-card-info h3 {
-    color: white;
-    font-size: 1.3rem;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-
-.vision-card-info p {
-    color: var(--marelli-cyan);
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin: 0;
 }
 
 /* =====================================================
@@ -1233,6 +1216,23 @@ p {
     box-shadow: 0 4px 15px rgba(0,166,231,0.3);
 }
 
+.coming-badge {
+    background: #E7004C;
+    color: white;
+    font-size: 0.55rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: absolute;
+    bottom: -8px;
+    white-space: nowrap;
+    z-index: 5;
+    pointer-events: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
 .logo-lightbox {
     position: fixed;
     top: 0;
@@ -1439,16 +1439,13 @@ p {
     .dashboard-grid { grid-template-columns: 1fr; }
     .local-time-display { display: none; }
     
-    .vision-container { flex-direction: column; gap: 20px; }
-    .vision-group-images { flex-direction: column; width: 100%; gap: 20px; flex: unset; }
-    .vision-group-video { width: 100%; flex: unset; }
+    .vision-container { flex-direction: column; gap: 30px; min-height: auto; }
+    .vision-col-left, .vision-col-right { width: 100%; gap: 30px; }
     
-    .vision-card-16-9, .vision-card-video { 
-        margin: 0 auto; 
-        width: 100%; 
+    .card-damian, .card-video, .card-strategy { 
+        width: 100%; /* En móviles forzamos a que ocupen el 100% de la pantalla */
         max-width: 800px; 
         height: auto; 
-        transform: none !important; 
     }
     
     .process-videos-grid { grid-template-columns: 1fr; }
@@ -1766,23 +1763,23 @@ p {
     <section id="sec-vision" class="panel vision-panel" data-lon="-95.00" data-lat="38.00" data-zoom="1.2" data-country="USA,MEX" data-label="">
         <div class="vision-container">
             
-            <!-- Grupo de las 2 imágenes pegadas (Damián y Strategy) -->
-            <div class="vision-group-images">
-                <div class="vision-card-16-9 interactive-media card-up-20" onclick="openImageModal('Other/Damian.png')">
+            <!-- Columna Izquierda: Damian arriba, Video abajo -->
+            <div class="vision-col-left">
+                <div class="card-damian interactive-media" onclick="openImageModal('Other/Damian.png')">
                     <img src="Other/Damian.png" alt="Damián Seweryn">
                 </div>
 
-                <div class="vision-card-16-9 interactive-media" onclick="openImageModal('Other/Strategy.png')">
-                    <img src="Other/Strategy.png" alt="Strategy AHEAD">
-                </div>
-            </div>
-
-            <!-- Grupo del video a la derecha -->
-            <div class="vision-group-video">
-                <div class="vision-card-video interactive-media card-down-20" onclick="openVideoModal('Video/Revolution.mp4')">
+                <div class="card-video interactive-media" onclick="openVideoModal('Video/Revolution.mp4')">
                     <video autoplay loop muted playsinline>
                         <source src="Video/Revolution.mp4" type="video/mp4">
                     </video>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Strategy centrado -->
+            <div class="vision-col-right">
+                <div class="card-strategy interactive-media" onclick="openImageModal('Other/Strategy.png')">
+                    <img src="Other/Strategy.png" alt="Strategy AHEAD">
                 </div>
             </div>
 
@@ -1805,7 +1802,7 @@ p {
     <div class="footer-grid">
         <div class="footer-col">
             <h4 data-i18n="foot_data">Dashboard Data</h4>
-            <p data-i18n="foot_update">Last Updated: November 1, 2026</p>
+            <p data-i18n="foot_update">Last Updated: November 2, 2026</p>
             <p>Version 2.07.24</p>
         </div>
         <div class="footer-col">
@@ -1862,7 +1859,7 @@ let plantData = {
     "ALMX-JU1": {
         sectionId: "sec-juarez1", tz: "America/Ciudad_Juarez", title: "ALMX-JU1 (Juárez I)", location: "Ciudad Juárez, Chihuahua, Mexico",
         images: ["Plant/1JU1.png", "Plant/1JU2.png", "Plant/1JU3.png", "Plant/1JU4.jpg"],
-        videoUrls: ["Video/JU1.0.mp4", "Video/JU1.mp4"],
+        videoUrls: ["Video/JU1.mp4"],
         processVideos: { molding: [], coating: [], assembly: [] },
         customers: ["Stellantis", "Chrysler", "Ford", "Tesla", "Mercedes", "Volvo"],
         staff: {
@@ -1894,7 +1891,7 @@ let plantData = {
     "ALMX-JU2": {
         sectionId: "sec-juarez2", tz: "America/Ciudad_Juarez", title: "ALMX-JU2 (Juárez II)", location: "Ciudad Juárez, Chihuahua, Mexico",
         images: ["Plant/2JU1.png", "Plant/2JU2.jpg"],
-        videoUrls: ["Video/JU2.0.mp4", "Video/JU2.mp4"],
+        videoUrls: ["Video/JU2.mp4"],
         processVideos: { molding: [], coating: [], assembly: [] },
         customers: ["Stellantis", "BMW", "Tesla", "GM", "GMC", "Rivian"],
         staff: {
@@ -1926,7 +1923,7 @@ let plantData = {
     "ALMX-TO": {
         sectionId: "sec-toluca", tz: "America/Mexico_City", title: "ALMX-TO (Toluca)", location: "Toluca, Estado de México",
         images: ["Plant/TO.jpg", "Plant/TO1.png", "Plant/TO2.jpg"],
-        videoUrls: ["Video/TO.0.mp4", "Video/TO.mp4"],
+        videoUrls: ["Video/TO.mp4"],
         processVideos: { molding: [], coating: [], assembly: [] },
         customers: ["Stellantis", "Volkswagen", "Audi", "Tesla"],
         staff: {
@@ -2201,7 +2198,7 @@ const i18n = {
         "countries_title": "United States & Mexico", "countries_desc": "Strategic locations powering the North American automotive sector with cutting-edge technology and unparalleled logistics.", 
         "btn_start_tour": "Start Tour", "btn_pause_tour": "Pause Tour", "btn_resume_tour": "Resume Tour", "btn_stop_tour": "Stop Tour",
         "card1_title": "Damián Seweryn", "card1_desc": "Head of NAM", 
-        "mod_cap": "Manufacturing Capabilities", "mod_staff": "Staff & Headcount", "mod_surface": "Surface Area", "mod_cust": "Main Customers", "foot_dev": "Developed & Engineered by <a href='mailto:Luis.gonzalez@marelli.com' title='Luis.gonzalez@marelli.com' class='dev-link'>Luis González</a>", "foot_data": "Dashboard Data", "foot_update": "Last Updated: November 1, 2026", "foot_links": "Corporate Links",
+        "mod_cap": "Manufacturing Capabilities", "mod_staff": "Staff & Headcount", "mod_surface": "Surface Area", "mod_cust": "Main Customers", "foot_dev": "Developed & Engineered by <a href='mailto:Luis.gonzalez@marelli.com' title='Luis.gonzalez@marelli.com' class='dev-link'>Luis González</a>", "foot_data": "Dashboard Data", "foot_update": "Last Updated: November 2, 2026", "foot_links": "Corporate Links",
         "high_ju2": "★ Largest footprint in the region", "high_te": "★ Marelli Electronics Partner at the same location"
     },
     "ES": { 
@@ -2214,7 +2211,7 @@ const i18n = {
         "countries_title": "Estados Unidos y México", "countries_desc": "Ubicaciones estratégicas que impulsan el sector automotriz en Norteamérica con tecnología de punta y logística inigualable.", 
         "btn_start_tour": "Iniciar Tour", "btn_pause_tour": "Pausar Tour", "btn_resume_tour": "Reanudar Tour", "btn_stop_tour": "Detener Tour",
         "card1_title": "Damián Seweryn", "card1_desc": "Head of NAM", 
-        "mod_cap": "Capacidades de Manufactura", "mod_staff": "Personal y Plantilla", "mod_surface": "Superficie de Planta", "mod_cust": "Clientes Principales", "foot_dev": "Desarrollado y Diseñado por <a href='mailto:Luis.gonzalez@marelli.com' title='Luis.gonzalez@marelli.com' class='dev-link'>Luis González</a>", "foot_data": "Datos del Dashboard", "foot_update": "Última Actualización: 1 de Noviembre de 2026", "foot_links": "Enlaces Corporativos",
+        "mod_cap": "Capacidades de Manufactura", "mod_staff": "Personal y Plantilla", "mod_surface": "Superficie de Planta", "mod_cust": "Clientes Principales", "foot_dev": "Desarrollado y Diseñado por <a href='mailto:Luis.gonzalez@marelli.com' title='Luis.gonzalez@marelli.com' class='dev-link'>Luis González</a>", "foot_data": "Datos del Dashboard", "foot_update": "Última Actualización: 2 de Noviembre de 2026", "foot_links": "Enlaces Corporativos",
         "high_ju2": "★ La planta más grande de la región", "high_te": "★ Partner de Marelli Electronics en la misma ubicación"
     },
     "IT": { 
@@ -2227,7 +2224,7 @@ const i18n = {
         "countries_title": "Stati Uniti e Messico", "countries_desc": "Posizioni strategiche che alimentano il settore automobilistico con tecnologia all'avanguardia.", 
         "btn_start_tour": "Inizia Tour", "btn_pause_tour": "Pausa Tour", "btn_resume_tour": "Riprendi Tour", "btn_stop_tour": "Ferma Tour",
         "card1_title": "Damián Seweryn", "card1_desc": "Head of NAM", 
-        "mod_cap": "Capacità Produttive", "mod_staff": "Personale e Organico", "mod_surface": "Area di Superficie", "mod_cust": "Clienti Principali", "foot_dev": "Sviluppato e Progettato da <a href='mailto:Luis.gonzalez@marelli.com' title='Luis.gonzalez@marelli.com' class='dev-link'>Luis González</a>", "foot_data": "Dati del Dashboard", "foot_update": "Ultimo Aggiornamento: 1 Novembre 2026", "foot_links": "Link Aziendali",
+        "mod_cap": "Capacità Produttive", "mod_staff": "Personale e Organico", "mod_surface": "Area di Superficie", "mod_cust": "Clienti Principali", "foot_dev": "Sviluppato e Progettato da <a href='mailto:Luis.gonzalez@marelli.com' title='Luis.gonzalez@marelli.com' class='dev-link'>Luis González</a>", "foot_data": "Dati del Dashboard", "foot_update": "Ultimo Aggiornamento: 2 Novembre 2026", "foot_links": "Link Aziendali",
         "high_ju2": "★ La più grande presenza nella regione", "high_te": "★ Partner Marelli Electronics nella stessa sede"
     },
     "CN": { 
@@ -2240,7 +2237,7 @@ const i18n = {
         "countries_title": "美国与墨西哥", "countries_desc": "以尖端技术和无与伦比的物流能力推动北美汽车行业发展的战略要地。", 
         "btn_start_tour": "开始导览", "btn_pause_tour": "暂停导览", "btn_resume_tour": "继续导览", "btn_stop_tour": "停止导览",
         "card1_title": "Damián Seweryn", "card1_desc": "Head of NAM", 
-        "mod_cap": "制造能力", "mod_staff": "员工人数", "mod_surface": "厂区面积", "mod_cust": "主要客户", "foot_dev": "由 <a href='mailto:Luis.gonzalez@marelli.com' title='Luis.gonzalez@marelli.com' class='dev-link'>Luis González</a> 开发和设计", "foot_data": "仪表板数据", "foot_update": "最后更新: 2026年11月1日", "foot_links": "企业链接",
+        "mod_cap": "制造能力", "mod_staff": "员工人数", "mod_surface": "厂区面积", "mod_cust": "主要客户", "foot_dev": "由 <a href='mailto:Luis.gonzalez@marelli.com' title='Luis.gonzalez@marelli.com' class='dev-link'>Luis González</a> 开发和设计", "foot_data": "仪表板数据", "foot_update": "最后更新: 2026年11月2日", "foot_links": "企业链接",
         "high_ju2": "★ 区域内最大制造基地", "high_te": "★ 同一地点的马瑞利电子合作伙伴"
     },
     "PL": { 
@@ -2253,7 +2250,7 @@ const i18n = {
         "countries_title": "Stany Zjednoczone i Meksyk", "countries_desc": "Strategiczne lokalizacje napędzające sektor motoryzacyjny w Ameryce Północnej dzięki najnowocześniejszej technologii i niezrównanej logistyce.", 
         "btn_start_tour": "Rozpocznij Wycieczkę", "btn_pause_tour": "Pauza", "btn_resume_tour": "Wznów Wycieczkę", "btn_stop_tour": "Zatrzymaj Wycieczkę",
         "card1_title": "Damián Seweryn", "card1_desc": "Head of NAM", 
-        "mod_cap": "Możliwości Produkcyjne", "mod_staff": "Personel i Zatrudnienie", "mod_surface": "Powierzchnia", "mod_cust": "Główni Klienci", "foot_dev": "Opracowano i zaprojektowano przez <a href='mailto:Luis.gonzalez@marelli.com' title='Luis.gonzalez@marelli.com' class='dev-link'>Luis González</a>", "foot_data": "Dane Dashboardu", "foot_update": "Ostatnia Aktualizacja: 1 Listopada 2026", "foot_links": "Linki Korporacyjne",
+        "mod_cap": "Możliwości Produkcyjne", "mod_staff": "Personel i Zatrudnienie", "mod_surface": "Powierzchnia", "mod_cust": "Główni Klienci", "foot_dev": "Opracowano i zaprojektowano przez <a href='mailto:Luis.gonzalez@marelli.com' title='Luis.gonzalez@marelli.com' class='dev-link'>Luis González</a>", "foot_data": "Dane Dashboardu", "foot_update": "Ostatnia Aktualizacja: 2 Listopada 2026", "foot_links": "Linki Korporacyjne",
         "high_ju2": "★ Największy zasięg w regionie", "high_te": "★ Partner Marelli Electronics w tej samej lokalizacji"
     }
 };
