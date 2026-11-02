@@ -1503,7 +1503,7 @@ p {
                     <li><a href="#sec-countries" data-i18n="nav_countries" onclick="instantNavigate(event, 'sec-countries')">Countries</a></li>
                     
                     <hr class="dropdown-divider">
-                    <li class="dropdown-header" data-i18n="nav_offices">HEADQUARTERS</li>
+                    <li class="dropdown-header" data-i18n="nav_offices">HEADQUARTER</li>
                     <li><a href="#sec-southfield" onclick="instantNavigate(event, 'sec-southfield')">HC Southfield</a></li>
                     
                     <hr class="dropdown-divider">
@@ -1562,7 +1562,7 @@ p {
 
 <div id="local-time-display" class="local-time-display">
     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-    <span id="time-zone-label">NA Headquarters</span>: <span id="time-clock">--:--:--</span>
+    <span id="time-zone-label">NA Headquarter</span>: <span id="time-clock">--:--:--</span>
 </div>
 
 <div id="logo-lightbox" class="logo-lightbox" onclick="closeLogoLightbox()">
@@ -1659,7 +1659,7 @@ p {
             <h2 data-i18n="foot_title">Manufacturing Footprint</h2>
             <div class="kpi">
                 <div class="kpi-box"><h3>2</h3><span data-i18n="kpi_countries">Countries</span></div>
-                <div class="kpi-box"><h3>1</h3><span data-i18n="kpi_office">Headquarters</span></div>
+                <div class="kpi-box"><h3>1</h3><span data-i18n="kpi_office">Headquarter</span></div>
                 <div class="kpi-box"><h3>5</h3><span data-i18n="kpi_assembly">Assembly Plants</span></div>
                 <div class="kpi-box"><h3>1</h3><span data-i18n="kpi_tech">Tech Center</span></div>
                 <div class="kpi-box"><h3>3,981</h3><span data-i18n="kpi_emp">Employees</span></div>
@@ -1679,9 +1679,9 @@ p {
         <div class="content">
             <div class="location-tag" data-i18n="tag_usa">UNITED STATES</div>
             <h2>HC Southfield</h2>
-            <h4 class="subtitle" data-i18n="sub_corp_office">Headquarters</h4>
+            <h4 class="subtitle" data-i18n="sub_corp_office">Headquarter</h4>
             <p>Southfield, Michigan</p>
-            <p data-i18n="desc_sf">Regional Headquarters</p>
+            <p data-i18n="desc_sf">Regional Headquarter</p>
             <button class="btn-details" data-i18n="btn_details" onclick="openModal('SOUTHFIELD')">View Details</button>
         </div>
     </section>
@@ -1859,7 +1859,7 @@ let plantData = {
     "ALMX-JU1": {
         sectionId: "sec-juarez1", tz: "America/Ciudad_Juarez", title: "ALMX-JU1 (Juárez I)", location: "Ciudad Juárez, Chihuahua, Mexico",
         images: ["Plant/1JU1.png", "Plant/1JU2.png", "Plant/1JU3.png", "Plant/1JU4.jpg"],
-        videoUrls: ["Video/JU1.mp4"],
+        videoUrls: ["Video/JU1.0.mp4", "Video/JU1.mp4"],
         processVideos: { molding: [], coating: [], assembly: [] },
         customers: ["Stellantis", "Chrysler", "Ford", "Tesla", "Mercedes", "Volvo"],
         staff: {
@@ -1891,7 +1891,7 @@ let plantData = {
     "ALMX-JU2": {
         sectionId: "sec-juarez2", tz: "America/Ciudad_Juarez", title: "ALMX-JU2 (Juárez II)", location: "Ciudad Juárez, Chihuahua, Mexico",
         images: ["Plant/2JU1.png", "Plant/2JU2.jpg"],
-        videoUrls: ["Video/JU2.mp4"],
+        videoUrls: ["Video/JU2.0.mp4", "Video/JU2.mp4"],
         processVideos: { molding: [], coating: [], assembly: [] },
         customers: ["Stellantis", "BMW", "Tesla", "GM", "GMC", "Rivian"],
         staff: {
@@ -1923,7 +1923,7 @@ let plantData = {
     "ALMX-TO": {
         sectionId: "sec-toluca", tz: "America/Mexico_City", title: "ALMX-TO (Toluca)", location: "Toluca, Estado de México",
         images: ["Plant/TO.jpg", "Plant/TO1.png", "Plant/TO2.jpg"],
-        videoUrls: ["Video/TO.mp4"],
+        videoUrls: ["Video/TO.0.mp4", "Video/TO.mp4"],
         processVideos: { molding: [], coating: [], assembly: [] },
         customers: ["Stellantis", "Volkswagen", "Audi", "Tesla"],
         staff: {
@@ -2027,7 +2027,7 @@ let plantData = {
             "PL": ["Regionalne Centrum B&R (HUB)", "Projektowanie Mechaniczne", "Inżynieria i Walidacja Optyki", "Inżynieria Projektu i Relacje z Klientami"]
         },
         surface: {
-            "EN": ["Regional Headquarters", "SOP: 2022", "Total Turnover: N/A"],
+            "EN": ["Regional Headquarter", "SOP: 2022", "Total Turnover: N/A"],
             "ES": ["Sede Regional", "SOP: 2022", "Volumen de Negocio: N/A"],
             "IT": ["Sede Regionale", "SOP: 2022", "Fatturato Totale: N/A"],
             "CN": ["地区总部", "SOP: 2022", "总营业额: N/A"],
@@ -2189,12 +2189,12 @@ document.addEventListener('keydown', (e) => {
 
 const i18n = {
     "EN": { 
-        "nav_nafta": "NAFTA", "nav_footprint": "Footprint ▼", "nav_plants": "PLANTS", "nav_offices": "HEADQUARTERS", "nav_tech": "TECH CENTERS", "nav_countries": "Countries", "nav_ahead": "AHEAD", "search_placeholder": "Search...", 
+        "nav_nafta": "NAFTA", "nav_footprint": "Footprint ▼", "nav_plants": "PLANTS", "nav_offices": "HEADQUARTER", "nav_tech": "TECH CENTERS", "nav_countries": "Countries", "nav_ahead": "AHEAD", "search_placeholder": "Search...", 
         "hero_title": "Welcome to<br>Marelli Lighting<br><span>North America</span>", "hero_desc": "Marelli Manufacturing Footprint Across United States and Mexico.", 
-        "foot_title": "Manufacturing Footprint", "kpi_assembly": "Assembly Plants", "kpi_office": "Headquarters", "kpi_tech": "Tech Center", "kpi_emp": "Employees", "kpi_countries": "Countries", 
-        "tag_usa": "UNITED STATES", "tag_mex": "MEXICO", "tag_eng": "ENGINEERING", "tag_hq": "HEADQUARTERS", 
-        "sub_mfg_assembly": "Assembly Plant", "sub_corp_office": "Headquarters", "sub_tech_center": "Technical Center", "btn_details": "View Details", "btn_back": "&#8592; Back to Map", 
-        "desc_pu": "Production Plant for Head & Rear Lamps", "desc_ju1": "Production Plant for Head & Rear Lamps and Modules", "desc_ju2": "Production Plant for Head & Rear Lamps", "desc_to": "Production Plant for Head & Rear Lamps", "desc_te": "Production Plant for Rear Lamps", "desc_mtc": "Design HUB", "desc_sf": "Regional Headquarters", 
+        "foot_title": "Manufacturing Footprint", "kpi_assembly": "Assembly Plants", "kpi_office": "Headquarter", "kpi_tech": "Tech Center", "kpi_emp": "Employees", "kpi_countries": "Countries", 
+        "tag_usa": "UNITED STATES", "tag_mex": "MEXICO", "tag_eng": "ENGINEERING", "tag_hq": "HEADQUARTER", 
+        "sub_mfg_assembly": "Assembly Plant", "sub_corp_office": "Headquarter", "sub_tech_center": "Technical Center", "btn_details": "View Details", "btn_back": "&#8592; Back to Map", 
+        "desc_pu": "Production Plant for Head & Rear Lamps", "desc_ju1": "Production Plant for Head & Rear Lamps and Modules", "desc_ju2": "Production Plant for Head & Rear Lamps", "desc_to": "Production Plant for Head & Rear Lamps", "desc_te": "Production Plant for Rear Lamps", "desc_mtc": "Design HUB", "desc_sf": "Regional Headquarter", 
         "countries_title": "United States & Mexico", "countries_desc": "Strategic locations powering the North American automotive sector with cutting-edge technology and unparalleled logistics.", 
         "btn_start_tour": "Start Tour", "btn_pause_tour": "Pause Tour", "btn_resume_tour": "Resume Tour", "btn_stop_tour": "Stop Tour",
         "card1_title": "Damián Seweryn", "card1_desc": "Head of NAM", 
@@ -2705,7 +2705,7 @@ function playNextTourStep() {
             } else if (currentLang === 'PL') {
                 textToRead = 'Nasz zasięg obejmuje 5 zakładów montażowych, 1 siedzibę główną i 1 centrum technologiczne, zatrudniając 3,981 pracowników.';
             } else {
-                textToRead = 'Our footprint consists of 5 assembly plants, 1 headquarters, and 1 tech center, with 3,981 employees.';
+                textToRead = 'Our footprint consists of 5 assembly plants, 1 headquarter, and 1 tech center, with 3,981 employees.';
             }
         } else if (step.id === 'sec-countries') {
             if(currentLang === 'ES') textToRead = 'Ubicaciones estratégicas que impulsan el sector automotriz con tecnología de punta.';
@@ -2897,7 +2897,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     clockWidget.classList.add('visible');
                 } else if (['sec-hero', 'sec-footprint', 'sec-countries', 'sec-vision'].includes(entry.target.id)) {
                     activeTimeZone = 'America/Detroit';
-                    activeTimeLabel = 'NA Headquarters (EST)';
+                    activeTimeLabel = 'NA Headquarter (EST)';
                     if(entry.target.id !== 'sec-footer') clockWidget.classList.add('visible');
                 }
                 
